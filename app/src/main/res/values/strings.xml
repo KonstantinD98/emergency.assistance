@@ -11,4 +11,25 @@
     <string name="menu_home">Home</string>
     <string name="menu_gallery">Gallery</string>
     <string name="menu_slideshow">Slideshow</string>
+    <array name="TypeOfDoc">
+        <item>Family physician</item>
+        <item>Psychiatrist</item>
+        <item>Obstetrician</item>
+        <item>Gynecologist</item>
+        <item>Pediatrician</item>
+        <item>Cardiologist</item>
+        <item>Surgeon</item>
+        <item>Anesthesiologist</item>
+    </array>
+
+    <array name="Doctors">
+        <item>Ivan Ivanov Family physician</item>
+        <item>Dimitar Dimitrov Psychiatrist</item>
+        <item>Obstetrician</item>
+        <item>Gynecologist</item>
+        <item>Pediatrician</item>
+        <item>Cardiologist</item>
+        <item>Surgeon</item>
+        <item>Anesthesiologist</item>
+    </array>
 </resources>

@@ -47,4 +47,19 @@ public class Database extends SQLiteOpenHelper {
         }
         return result;
     }
+    public void AddDoctor(String firstName,String lastName, String email,String telephone, String typeOfDoc) {
+
+        ContentValues cv = new ContentValues();
+        cv.put("firstName", firstName);
+        cv.put("lastName", lastName);
+        cv.put("email", email);
+        cv.put("telephone", telephone);
+        cv.put("typeOfDoc", typeOfDoc);
+        SQLiteDatabase db = getWritableDatabase();
+        db.insert("doctor", null,cv);
+        db.close();
+    }
+
 }
+
+

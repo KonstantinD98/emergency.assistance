@@ -4,14 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/back_1"
+    android:background="@drawable/back_3"
     tools:context=".DoctorActivity">
 
     <TextView
-        android:id="@+id/titleHome"
+        android:id="@+id/title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="48dp"
+        android:layout_marginTop="16dp"
         android:text="Emergency Assistance"
         android:textColor="@color/DarkOrange"
         android:textSize="30sp"
@@ -21,15 +21,15 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/ETFNameD"
+        android:id="@+id/animal"
         android:layout_width="290dp"
         android:layout_height="62dp"
         android:layout_marginTop="72dp"
         android:background="@drawable/input_bg"
-        android:drawableLeft="@drawable/icon_person"
+        android:drawableLeft="@android:drawable/ic_input_add"
         android:drawablePadding="10dp"
         android:ems="10"
-        android:hint="First Name"
+        android:hint="animal"
         android:inputType="textPersonName"
         android:textColorHint="@color/black"
         android:textSize="24sp"
@@ -40,74 +40,74 @@
         tools:ignore="MissingConstraints" />
 
     <EditText
-        android:id="@+id/ETLNameD"
+        android:id="@+id/breed"
         android:layout_width="290dp"
         android:layout_height="62dp"
         android:layout_marginTop="8dp"
         android:background="@drawable/input_bg"
-        android:drawableLeft="@drawable/icon_person"
+        android:drawableLeft="@android:drawable/ic_input_add"
         android:drawablePadding="10dp"
         android:ems="10"
-        android:hint="Last Name"
+        android:hint="breed"
         android:inputType="textPersonName"
         android:textColorHint="@color/black"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ETFNameD"
+        app:layout_constraintTop_toBottomOf="@+id/animal"
         tools:ignore="MissingConstraints" />
 
     <EditText
-        android:id="@+id/ETTelephoneD"
+        android:id="@+id/ownerName"
         android:layout_width="290dp"
         android:layout_height="62dp"
         android:layout_marginTop="16dp"
         android:background="@drawable/input_bg"
-        android:drawableLeft="@android:drawable/sym_action_call"
+        android:drawableLeft="@drawable/icon_person"
         android:drawablePadding="10dp"
         android:ems="10"
-        android:hint="Telephone"
+        android:hint="Owner Name"
         android:inputType="textPersonName"
         android:textColorHint="@color/black"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ETEmailD"
+        app:layout_constraintTop_toBottomOf="@+id/petName"
         tools:ignore="MissingConstraints" />
 
     <EditText
-        android:id="@+id/ETEmailD"
+        android:id="@+id/petName"
         android:layout_width="290dp"
         android:layout_height="62dp"
         android:layout_marginTop="12dp"
         android:background="@drawable/input_bg"
-        android:drawableLeft="@drawable/email"
+        android:drawableLeft="@android:drawable/ic_input_add"
         android:drawablePadding="10dp"
         android:ems="10"
-        android:hint="Email"
-        android:inputType="textEmailAddress"
+        android:hint="Pet name"
+        android:inputType="textPersonName"
         android:textColorHint="@color/black"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.504"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ETLNameD"
+        app:layout_constraintTop_toBottomOf="@+id/breed"
         tools:ignore="MissingConstraints" />
 
     <Spinner
-        android:id="@+id/spinnerTypeD"
+        android:id="@+id/spinnerVet"
         android:layout_width="290dp"
         android:layout_height="62dp"
         android:background="@drawable/input_bg"
-        android:entries="@array/TypeOfDoc"
+        android:entries="@array/Doctors"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.504"
+        app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ETTelephoneD"
-        app:layout_constraintVertical_bias="0.107"
+        app:layout_constraintTop_toBottomOf="@+id/ownerName"
+        app:layout_constraintVertical_bias="0.085"
         tools:ignore="MissingConstraints" />
 
     <TextView
@@ -115,30 +115,30 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:text="Doctors"
+        android:text="Pets"
         android:textColor="@color/DarkOrange"
         android:textSize="30sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/titleHome" />
+        app:layout_constraintTop_toBottomOf="@+id/title" />
 
     <Button
-        android:id="@+id/btnAddDoc"
+        android:id="@+id/btnAddPet"
         android:layout_width="130dp"
         android:layout_height="50dp"
         android:layout_marginTop="40dp"
         android:background="@drawable/input_bg"
-        android:text="Add Doctor"
+        android:text="Add"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.056"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/spinnerTypeD" />
+        app:layout_constraintTop_toBottomOf="@+id/spinnerVet" />
 
     <Button
-        android:id="@+id/btnBackDoc"
+        android:id="@+id/btnBackPet"
         android:layout_width="130dp"
         android:layout_height="50dp"
         android:layout_marginTop="40dp"
@@ -148,10 +148,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/spinnerTypeD" />
+        app:layout_constraintTop_toBottomOf="@+id/spinnerVet" />
 
     <Button
-        android:id="@+id/btnViewDoc"
+        android:id="@+id/btnViewPet"
         android:layout_width="130dp"
         android:layout_height="50dp"
         android:layout_marginTop="40dp"
@@ -161,17 +161,17 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.519"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/spinnerTypeD" />
+        app:layout_constraintTop_toBottomOf="@+id/spinnerVet" />
 
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="123dp"
         android:layout_height="96dp"
-        android:layout_marginTop="108dp"
-        android:layout_marginEnd="48dp"
+        android:layout_marginTop="88dp"
+        android:layout_marginEnd="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/doctor" />
+        app:srcCompat="@drawable/pet" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

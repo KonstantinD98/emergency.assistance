@@ -21,7 +21,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/ETFNameD"
+        android:id="@+id/ETFNameVet"
         android:layout_width="290dp"
         android:layout_height="62dp"
         android:layout_marginTop="72dp"
@@ -40,7 +40,7 @@
         tools:ignore="MissingConstraints" />
 
     <EditText
-        android:id="@+id/ETLNameD"
+        android:id="@+id/ETLNameVet"
         android:layout_width="290dp"
         android:layout_height="62dp"
         android:layout_marginTop="8dp"
@@ -55,11 +55,11 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ETFNameD"
+        app:layout_constraintTop_toBottomOf="@+id/ETFNameVet"
         tools:ignore="MissingConstraints" />
 
     <EditText
-        android:id="@+id/ETTelephoneD"
+        android:id="@+id/ETTelephoneVet"
         android:layout_width="290dp"
         android:layout_height="62dp"
         android:layout_marginTop="16dp"
@@ -74,11 +74,11 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ETEmailD"
+        app:layout_constraintTop_toBottomOf="@+id/ETEmailVet"
         tools:ignore="MissingConstraints" />
 
     <EditText
-        android:id="@+id/ETEmailD"
+        android:id="@+id/ETEmailVet"
         android:layout_width="290dp"
         android:layout_height="62dp"
         android:layout_marginTop="12dp"
@@ -93,21 +93,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.504"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ETLNameD"
-        tools:ignore="MissingConstraints" />
-
-    <Spinner
-        android:id="@+id/spinnerTypeD"
-        android:layout_width="290dp"
-        android:layout_height="62dp"
-        android:background="@drawable/input_bg"
-        android:entries="@array/TypeOfDoc"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.504"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ETTelephoneD"
-        app:layout_constraintVertical_bias="0.107"
+        app:layout_constraintTop_toBottomOf="@+id/ETLNameVet"
         tools:ignore="MissingConstraints" />
 
     <TextView
@@ -115,7 +101,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:text="Doctors"
+        android:text="Vet"
         android:textColor="@color/DarkOrange"
         android:textSize="30sp"
         android:textStyle="bold"
@@ -125,7 +111,7 @@
         app:layout_constraintTop_toBottomOf="@+id/titleHome" />
 
     <Button
-        android:id="@+id/btnAddDoc"
+        android:id="@+id/btnAddVet"
         android:layout_width="130dp"
         android:layout_height="50dp"
         android:layout_marginTop="40dp"
@@ -135,10 +121,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.056"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/spinnerTypeD" />
+        app:layout_constraintTop_toBottomOf="@+id/ETTelephoneVet" />
 
     <Button
-        android:id="@+id/btnBackDoc"
+        android:id="@+id/btnBackVet"
         android:layout_width="130dp"
         android:layout_height="50dp"
         android:layout_marginTop="40dp"
@@ -148,10 +134,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/spinnerTypeD" />
+        app:layout_constraintTop_toBottomOf="@+id/ETTelephoneVet" />
 
     <Button
-        android:id="@+id/btnViewDoc"
+        android:id="@+id/btnViewVet"
         android:layout_width="130dp"
         android:layout_height="50dp"
         android:layout_marginTop="40dp"
@@ -161,7 +147,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.519"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/spinnerTypeD" />
+        app:layout_constraintTop_toBottomOf="@+id/ETTelephoneVet" />
 
     <ImageView
         android:id="@+id/imageView"
@@ -171,7 +157,7 @@
         android:layout_marginEnd="48dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/doctor" />
+        app:srcCompat="@drawable/vet" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

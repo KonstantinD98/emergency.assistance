@@ -12,6 +12,18 @@
         android:theme="@style/Theme.ЕmergencyАssistance"
         tools:targetApi="31">
         <activity
+            android:name=".DoctorViewActivity"
+            android:exported="false" />
+        <activity
+            android:name=".VetActivity"
+            android:exported="false" />
+        <activity
+            android:name=".PatientActivity"
+            android:exported="false" />
+        <activity
+            android:name=".PetActivity"
+            android:exported="false" />
+        <activity
             android:name=".DoctorActivity"
             android:exported="false" />
         <activity
