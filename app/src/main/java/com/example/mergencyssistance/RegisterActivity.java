@@ -2,18 +2,29 @@ package com.example.mergencyssistance;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.StrictMode;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
+
+import com.example.mergencyssistance.Connection.ConnectionClass;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.Statement;
 
 public class RegisterActivity extends AppCompatActivity {
-    EditText ETRegUsername, ETEmail, ETRegPassword, ETRegPasswordConfirm;
+    EditText ETRegUsername, ETEmail, ETRegPassword;
     Button btnRegister;
-    TextView TVHaveAcc;
+    TextView TVHaveAcc, status;
+    Connection con;
+    Statement stmt;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,9 +33,17 @@ public class RegisterActivity extends AppCompatActivity {
         ETRegUsername = findViewById(R.id.ETRegUsername);
         ETRegPassword = findViewById(R.id.ETRegPassword);
         ETEmail = findViewById(R.id.ETEmail);
-        ETRegPasswordConfirm = findViewById(R.id.ETRegPasswordConfirm);
         btnRegister = findViewById(R.id.btnRegister);
         TVHaveAcc = findViewById(R.id.TVHaveAcc);
+        status = findViewById(R.id.status);
+
+        btnRegister.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                new RegisterActivity.registeruser().execute("");
+
+            }
+        });
 
         TVHaveAcc.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -32,58 +51,69 @@ public class RegisterActivity extends AppCompatActivity {
                 startActivity(new Intent(RegisterActivity.this, LoginActivity.class));
             }
         });
-        btnRegister.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                String username = ETRegUsername.getText().toString();
-                String email = ETEmail.getText().toString();
-                String password = ETRegPassword.getText().toString();
-                String confirm = ETRegPasswordConfirm.getText().toString();
-                Database db = new Database(getApplicationContext(),"emergency", null, 1);
-                if (username.length() == 0 || email.length() == 0 || password.length() == 0 || confirm.length() == 0) {
-                    Toast.makeText(getApplicationContext(), "Please fill All details", Toast.LENGTH_SHORT).show();
-                } else {
-                    if (password.compareTo(confirm) == 0) {
-                        if (isValid(password)){
-                            db.register(username,email,password);
-                            Toast.makeText(getApplicationContext(), "Record Inserted", Toast.LENGTH_SHORT).show();
-                            startActivity(new Intent(RegisterActivity.this,LoginActivity.class));
-                        }else{
-                            Toast.makeText(getApplicationContext(), "Password must contain at least 8 characters, having letter, digit and special symbol", Toast.LENGTH_SHORT).show();
-                        }
 
-                    } else {
-                        Toast.makeText(getApplicationContext(), "Password and Confirm Password didn't match", Toast.LENGTH_SHORT).show();
-                    }
-                }
-            }
-        });
     }
 
-    public static boolean isValid(String passwordhere) {
-        int f1 = 0, f2 = 0, f3 = 0;
-        if (passwordhere.length()<8){
-            return false;
-        }else{
-            for (int p = 0; p < passwordhere.length(); p++){
-                if (Character.isLetter(passwordhere.charAt(p))){
-                    f1 = 1;
-                }
-            }
-            for (int r = 0; r < passwordhere.length(); r++) {
-                if (Character.isDigit(passwordhere.charAt(r))) {
-                    f2 = 1;
-                }
-            }
-            for (int s = 0; s < passwordhere.length(); s++) {
-                char c = passwordhere.charAt(s);
-                if (c >= 33 && c <= 46 || c == 64) {
-                    f3 = 1;
-                }
-            }
-            if (f1==1 && f2 == 1 && f3 ==1)
-                return true;
-            return false;
+    public class registeruser extends AsyncTask<String, String, String>{
+
+        String z = "";
+        Boolean isSuccess = false;
+
+        @Override
+        protected void onPreExecute() {
+            status.setText("Sending Data to Database");
         }
+
+        @Override
+        protected void onPostExecute(String s) {
+            status.setText("Registration Successful");
+            ETRegUsername.setText("");
+            ETEmail.setText("");
+            ETRegPassword.setText("");
+
+        }
+
+        @Override
+        protected String doInBackground(String... strings) {
+            try {
+                con = connectionClass(ConnectionClass.un.toString(),ConnectionClass.pass.toString(),ConnectionClass.db.toString(),
+                        ConnectionClass.ip.toString());
+                if (con == null){
+                    z = "Check Your Internet Connection";
+                }
+                else{
+                    String sql = "INSERT INTO UserTable (username, email, password) VALUES ('"+ETRegUsername.getText()+"','"+ETEmail.getText()
+                            +"','"+ETRegPassword.getText()+"')";
+                    stmt = con.createStatement();
+                    stmt.executeUpdate(sql);
+                }
+
+            }catch (Exception e){
+                isSuccess = false;
+                z = e.getMessage();
+
+            }
+
+
+            return z;
+        }
+
+    }
+
+
+    @SuppressLint("NewApi")
+    public Connection connectionClass(String user, String password, String database, String server) {
+        StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+        StrictMode.setThreadPolicy(policy);
+        Connection connection = null;
+        String connectionURL = null;
+        try {
+            Class.forName("net.sourceforge.jtds.jdbc.Driver");
+            connectionURL = "jdbc:jtds:sqlserver://" + server + "/" + database + ";user=" + user + ";password=" + password + ";";
+            connection = DriverManager.getConnection(connectionURL);
+        } catch (Exception e) {
+            Log.e("SQL Connection Error : ", e.getMessage());
+        }
+        return connection;
     }
 }

@@ -104,41 +104,18 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ETEmail" />
 
-    <EditText
-        android:id="@+id/ETRegPasswordConfirm"
-        android:layout_width="420dp"
-        android:layout_height="62dp"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="30dp"
-        android:background="@drawable/input_bg"
-        android:drawableLeft="@drawable/icon_password"
-        android:drawablePadding="10dp"
-        android:ems="10"
-        android:hint="Confirm Password"
-        android:inputType="textPassword"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ETRegPassword"
-        app:layout_constraintVertical_bias="0.064" />
-
     <Button
         android:id="@+id/btnRegister"
-        android:layout_width="130dp"
-        android:layout_height="74dp"
+        android:layout_width="wrap_content"
+        android:layout_height="62dp"
         android:layout_marginBottom="136dp"
         android:background="@drawable/input_bg"
-        android:text="Login"
+        android:text="Register"
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ETRegPasswordConfirm"
-        app:layout_constraintVertical_bias="0.711" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/TVHaveAcc"
@@ -152,5 +129,18 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnRegister"
         app:layout_constraintVertical_bias="0.254" />
+
+    <TextView
+        android:id="@+id/status"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Register"
+        android:textSize="25dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/TVHaveAcc"
+        app:layout_constraintVertical_bias="0.137" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
