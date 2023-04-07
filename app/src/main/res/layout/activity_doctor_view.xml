@@ -1,31 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".DoctorViewActivity">
-
+    android:orientation="vertical">
 
     <Button
-        android:id="@+id/button"
-        android:layout_width="325dp"
-        android:layout_height="61dp"
-        android:text="Button"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.053" />
+        android:id="@+id/view_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="View Doctor Data" />
+
+    <TextView
+        android:id="@+id/statusview"
+        android:text="Add patient"
+        android:textSize="16dp"
+        android:layout_width="134dp"
+        android:layout_height="31dp"
+        />
 
     <ListView
-        android:layout_width="380dp"
-        android:layout_height="574dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="40dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button"
-        app:layout_constraintVertical_bias="0.0" />
+        android:id="@+id/doctor_list_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>

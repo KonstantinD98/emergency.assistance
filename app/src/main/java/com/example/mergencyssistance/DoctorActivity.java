@@ -49,6 +49,7 @@ public class DoctorActivity extends AppCompatActivity {
         statusdoc = findViewById(R.id.statusdoc);
 
         btnBackDoc.setOnClickListener(onClick);
+        btnViewDoc.setOnClickListener(onClick);
 
 
         btnAddDoc.setOnClickListener(new View.OnClickListener() {
@@ -61,6 +62,7 @@ public class DoctorActivity extends AppCompatActivity {
 
     }
 
+
     private View.OnClickListener onClick = new View.OnClickListener() {
         @Override
         public void onClick(View view) {
@@ -69,6 +71,9 @@ public class DoctorActivity extends AppCompatActivity {
             switch (view.getId()) {
                 case R.id.btnBackDoc:
                     intent = new Intent(DoctorActivity.this, HomeActivity.class);
+                    break;
+                case R.id.btnViewDoc:
+                    intent = new Intent(DoctorActivity.this, DoctorViewActivity.class);
                     break;
             }
             startActivity(intent);
