@@ -6,25 +6,26 @@
     android:background="@drawable/hospital_back">
 
     <Button
-        android:id="@+id/exitView"
+        android:id="@+id/exitViewVet"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="EXIT" />
+    <Button
+        android:id="@+id/searchViewVet"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Search" />
+
 
     <Button
-        android:id="@+id/view_button"
+        android:id="@+id/viewvet_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="View Doctor Data" />
-    <Button
-        android:id="@+id/search_button"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Search Doctor" />
+        android:text="View Vet Data" />
 
 
     <ListView
-        android:id="@+id/doctor_list_view"
+        android:id="@+id/vet_list_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 

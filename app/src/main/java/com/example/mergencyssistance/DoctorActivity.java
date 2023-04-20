@@ -47,10 +47,8 @@ public class DoctorActivity extends AppCompatActivity {
         btnBackDoc = findViewById(R.id.btnBackDoc);
         btnViewDoc = findViewById(R.id.btnViewDoc);
         statusdoc = findViewById(R.id.statusdoc);
-
         btnBackDoc.setOnClickListener(onClick);
         btnViewDoc.setOnClickListener(onClick);
-
 
         btnAddDoc.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -59,7 +57,6 @@ public class DoctorActivity extends AppCompatActivity {
 
             }
         });
-
     }
 
 

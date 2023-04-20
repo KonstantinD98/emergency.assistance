@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/back_1"
+    android:onClick="search"
     tools:context=".DoctorActivity">
 
     <TextView
@@ -21,10 +22,29 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/ETFNameVet"
+        android:id="@+id/ETSearchVet"
+        android:layout_width="303dp"
+        android:layout_height="68dp"
+        android:layout_marginTop="32dp"
+        android:background="@drawable/input_bg"
+        android:drawableLeft="@drawable/icon_person"
+        android:drawablePadding="10dp"
+        android:ems="10"
+        android:hint="Search by ID"
+        android:inputType="textPersonName"
+        android:textColorHint="@color/black"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.037"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView"
+        tools:ignore="MissingConstraints" />
+
+    <EditText
+        android:id="@+id/ETFNameSearchVet"
         android:layout_width="290dp"
         android:layout_height="62dp"
-        android:layout_marginTop="72dp"
+        android:layout_marginTop="12dp"
         android:background="@drawable/input_bg"
         android:drawableLeft="@drawable/icon_person"
         android:drawablePadding="10dp"
@@ -34,13 +54,32 @@
         android:textColorHint="@color/black"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.504"
+        app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView"
+        app:layout_constraintTop_toBottomOf="@+id/ETIDVet"
         tools:ignore="MissingConstraints" />
 
     <EditText
-        android:id="@+id/ETLNameVet"
+        android:id="@+id/ETIDVet"
+        android:layout_width="290dp"
+        android:layout_height="62dp"
+        android:layout_marginTop="12dp"
+        android:background="@drawable/input_bg"
+        android:drawableLeft="@drawable/icon_person"
+        android:drawablePadding="10dp"
+        android:ems="10"
+        android:hint="ID"
+        android:inputType="textPersonName"
+        android:textColorHint="@color/black"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ETSearchVet"
+        tools:ignore="MissingConstraints" />
+
+    <EditText
+        android:id="@+id/ETLNameSearchVet"
         android:layout_width="290dp"
         android:layout_height="62dp"
         android:layout_marginTop="8dp"
@@ -55,14 +94,14 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ETFNameVet"
+        app:layout_constraintTop_toBottomOf="@+id/ETFNameSearchVet"
         tools:ignore="MissingConstraints" />
 
     <EditText
-        android:id="@+id/ETTelephoneVet"
+        android:id="@+id/ETTelephoneSearchVet"
         android:layout_width="290dp"
         android:layout_height="62dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="8dp"
         android:background="@drawable/input_bg"
         android:drawableLeft="@android:drawable/sym_action_call"
         android:drawablePadding="10dp"
@@ -74,14 +113,14 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ETEmailVet"
+        app:layout_constraintTop_toBottomOf="@+id/ETEmailSearchVet"
         tools:ignore="MissingConstraints" />
 
     <EditText
-        android:id="@+id/ETEmailVet"
+        android:id="@+id/ETEmailSearchVet"
         android:layout_width="290dp"
         android:layout_height="62dp"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="8dp"
         android:background="@drawable/input_bg"
         android:drawableLeft="@drawable/email"
         android:drawablePadding="10dp"
@@ -91,86 +130,93 @@
         android:textColorHint="@color/black"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.504"
+        app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ETLNameVet"
+        app:layout_constraintTop_toBottomOf="@+id/ETLNameSearchVet"
         tools:ignore="MissingConstraints" />
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="Vet"
+        android:layout_marginTop="48dp"
+        android:text="Search Vet"
         android:textColor="@color/DarkOrange"
         android:textSize="30sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.365"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/titleHome" />
 
     <Button
-        android:id="@+id/btnDeleteVet"
+        android:id="@+id/btnDeleteSearchVet"
         android:layout_width="130dp"
         android:layout_height="50dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="44dp"
         android:background="@drawable/input_bg"
-        android:text="Add Doctor"
+        android:onClick="delete"
+        android:text="Delete"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.056"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ETTelephoneVet" />
+        app:layout_constraintTop_toBottomOf="@+id/ETTelephoneSearchVet" />
 
     <Button
-        android:id="@+id/btnBackVet"
+        android:id="@+id/btnBackSearchVet"
         android:layout_width="130dp"
         android:layout_height="50dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="44dp"
         android:background="@drawable/input_bg"
         android:text="Back"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ETTelephoneVet" />
+        app:layout_constraintTop_toBottomOf="@+id/ETTelephoneSearchVet" />
 
     <Button
-        android:id="@+id/btnEditVet"
+        android:id="@+id/btnEditSearchVet"
         android:layout_width="130dp"
         android:layout_height="50dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="44dp"
         android:background="@drawable/input_bg"
-        android:text="View Doctor"
+        android:onClick="modify"
+        android:text="Edit"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.519"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ETTelephoneVet" />
+        app:layout_constraintTop_toBottomOf="@+id/ETTelephoneSearchVet" />
 
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="123dp"
         android:layout_height="96dp"
-        android:layout_marginTop="108dp"
-        android:layout_marginEnd="48dp"
+        android:layout_marginTop="104dp"
+        android:layout_marginEnd="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/vet" />
 
-    <TextView
-        android:id="@+id/statusvet"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="51dp"
-        android:layout_marginBottom="56dp"
-        android:text="Add vet"
-        android:textSize="25dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+    <Button
+        android:id="@+id/btnSearch"
+        android:layout_width="137dp"
+        android:layout_height="47dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="12dp"
+        android:drawableLeft="@drawable/search"
+        android:onClick="search"
+        android:text="Search"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toTopOf="@+id/ETFNameSearchVet"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnEditVet" />
+        app:layout_constraintHorizontal_bias="0.824"
+        app:layout_constraintStart_toEndOf="@+id/ETSearchVet"
+        app:layout_constraintTop_toBottomOf="@+id/imageView"
+        app:layout_constraintVertical_bias="0.0" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

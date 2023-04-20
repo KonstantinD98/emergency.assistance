@@ -11,7 +11,6 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Spinner;
 import android.widget.TextView;
 
 import com.example.mergencyssistance.Connection.ConnectionClass;
@@ -36,12 +35,13 @@ public class VetActivity extends AppCompatActivity {
         ETLNameVet = findViewById(R.id.ETLNameVet);
         ETTelephoneVet = findViewById(R.id.ETTelephoneVet);
         ETEmailVet = findViewById(R.id.ETEmailVet);
-        btnAddVet = findViewById(R.id.btnAddVet);
+        btnAddVet = findViewById(R.id.btnDeleteVet);
         btnBackVet = findViewById(R.id.btnBackVet);
-        btnViewVet = findViewById(R.id.btnViewVet);
+        btnViewVet = findViewById(R.id.btnEditVet);
         statusvet = findViewById(R.id.statusvet);
 
         btnBackVet.setOnClickListener(onClick);
+        btnViewVet.setOnClickListener(onClick);
         btnAddVet.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -62,7 +62,11 @@ public class VetActivity extends AppCompatActivity {
                 case R.id.btnBackVet:
                     intent = new Intent(VetActivity.this, HomeActivity.class);
                     break;
+                case R.id.btnEditVet:
+                    intent = new Intent(VetActivity.this, VetViewActivity.class);
+                    break;
             }
+
             startActivity(intent);
         }
     };

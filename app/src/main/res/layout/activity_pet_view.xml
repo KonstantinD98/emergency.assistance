@@ -2,30 +2,29 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:background="@drawable/hospital_back">
+    android:orientation="vertical">
 
     <Button
-        android:id="@+id/exitView"
+        android:id="@+id/exitViewPet"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="EXIT" />
 
     <Button
-        android:id="@+id/view_button"
+        android:id="@+id/deletepet_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="View Doctor Data" />
+        android:text="Delete Pet Data" />
+
     <Button
-        android:id="@+id/search_button"
+        android:id="@+id/viewpet_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Search Doctor" />
+        android:text="View Pet Data" />
 
 
     <ListView
-        android:id="@+id/doctor_list_view"
+        android:id="@+id/pet_list_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
-
 </LinearLayout>

@@ -48,6 +48,7 @@ public class PatientActivity extends AppCompatActivity {
         statuspatient = findViewById(R.id.statuspatient);
 
         btnBackP.setOnClickListener(onClick);
+        btnViewP.setOnClickListener(onClick);
         fillSpinner();
         btnAddP.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -67,6 +68,9 @@ public class PatientActivity extends AppCompatActivity {
             switch (view.getId()) {
                 case R.id.btnBackP:
                     intent = new Intent(PatientActivity.this, HomeActivity.class);
+                    break;
+                case R.id.btnViewP:
+                    intent = new Intent(PatientActivity.this, PatientVIewActivity.class);
                     break;
             }
             startActivity(intent);

@@ -49,6 +49,7 @@ public class PetActivity extends AppCompatActivity {
         statuspet = findViewById(R.id.statuspet);
 
         btnBackPet.setOnClickListener(onClick);
+        btnViewPet.setOnClickListener(onClick);
         fillSpinner();
         btnAddPet.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -71,6 +72,9 @@ public class PetActivity extends AppCompatActivity {
             switch (view.getId()) {
                 case R.id.btnBackPet:
                     intent = new Intent(PetActivity.this, HomeActivity.class);
+                    break;
+                case R.id.btnViewPet:
+                    intent = new Intent(PetActivity.this, PetViewActivity.class);
                     break;
             }
             startActivity(intent);
