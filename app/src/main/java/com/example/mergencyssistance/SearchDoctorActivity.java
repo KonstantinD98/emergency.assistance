@@ -97,7 +97,7 @@ public class SearchDoctorActivity extends AppCompatActivity {
                  con = connectionClass(ConnectionClass.un.toString(), ConnectionClass.pass.toString(), ConnectionClass.db.toString(),
                          ConnectionClass.ip.toString());
                  if (con != null) {
-                     q = "update DoctorTable set firstName='" + f_DocName + "', lastname ='" + l_DocName + "', email='" + DocEmail + "', phone =" + DocPhone+" where doctorID=" +doc_id;
+                     q = "update DoctorTable set firstName='" + f_DocName + "', lastName ='" + l_DocName + "', email='" + DocEmail + "', phone =" + DocPhone+" where doctorID=" +doc_id;
                      st = con.createStatement();
                      result = st.executeUpdate(q);
                      if (result == 1) {

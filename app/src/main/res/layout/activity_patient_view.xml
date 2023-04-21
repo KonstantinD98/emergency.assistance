@@ -10,10 +10,10 @@
         android:layout_height="wrap_content"
         android:text="EXIT" />
     <Button
-        android:id="@+id/deletepatient_button"
+        android:id="@+id/searchPatient_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Delete Patient Data" />
+        android:text="Search Patient" />
 
     <Button
         android:id="@+id/viewpatient_button"

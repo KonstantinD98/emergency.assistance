@@ -11,10 +11,10 @@
         android:text="EXIT" />
 
     <Button
-        android:id="@+id/deletepet_button"
+        android:id="@+id/searchPet_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Delete Pet Data" />
+        android:text="Search Pet "/>
 
     <Button
         android:id="@+id/viewpet_button"

@@ -38,13 +38,20 @@ public class PatientVIewActivity extends AppCompatActivity {
         patientListView.setAdapter(arrayAdapter);
 
         Button viewButton = findViewById(R.id.viewpatient_button);
-        Button deleteButton = findViewById(R.id.deletepatient_button);
+        Button searchButton = findViewById(R.id.searchPatient_button);
         Button ExitButton = findViewById(R.id.exitViewPatient);
+
+        searchButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(PatientVIewActivity.this,PatientSearchActivity.class));
+            }
+        });
 
         ExitButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(PatientVIewActivity.this,DoctorActivity.class));
+                startActivity(new Intent(PatientVIewActivity.this,PatientActivity.class));
             }
         });
 
@@ -89,12 +96,6 @@ public class PatientVIewActivity extends AppCompatActivity {
                         }
                     }
                 }).start();
-            }
-        });
-        deleteButton.setOnClickListener(new View.OnClickListener() { //i must finish this
-            @Override
-            public void onClick(View view) {
-
             }
         });
 

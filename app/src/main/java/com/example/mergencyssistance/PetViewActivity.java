@@ -38,13 +38,13 @@ public class PetViewActivity extends AppCompatActivity {
         petListView.setAdapter(arrayAdapter);
 
         Button viewButton = findViewById(R.id.viewpet_button);
-        Button deleteButton = findViewById(R.id.deletepet_button);
+        Button searchButton = findViewById(R.id.searchPet_button);
         Button ExitButton = findViewById(R.id.exitViewPet);
 
         ExitButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(PetViewActivity.this,DoctorActivity.class));
+                startActivity(new Intent(PetViewActivity.this,PetActivity.class));
             }
         });
 
@@ -91,9 +91,10 @@ public class PetViewActivity extends AppCompatActivity {
                 }).start();
             }
         });
-        deleteButton.setOnClickListener(new View.OnClickListener() { //i must finish this
+        searchButton.setOnClickListener(new View.OnClickListener() { //i must finish this
             @Override
             public void onClick(View view) {
+                startActivity(new Intent(PetViewActivity.this,PetSearchActivity.class));
 
             }
         });
