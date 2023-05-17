@@ -79,7 +79,7 @@ public class PatientVIewActivity extends AppCompatActivity {
                                 patientList.add(patient);
                             }
 
-                            // Close the connection and the query result
+                            // Close the connection and the query result\
                             rs.close();
                             stmt.close();
                             con.close();

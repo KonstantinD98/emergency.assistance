@@ -98,11 +98,30 @@
         app:layout_constraintTop_toBottomOf="@+id/ETAnimalSearch"
         tools:ignore="MissingConstraints" />
 
+
+    <EditText
+        android:id="@+id/ETChooseVet"
+        android:layout_width="290dp"
+        android:layout_height="62dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/input_bg"
+        android:drawablePadding="10dp"
+        android:ems="10"
+        android:hint="Choose a Vet"
+        android:inputType="textPersonName"
+        android:textColorHint="@color/black"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ETOwnerNSearchPet"
+        tools:ignore="MissingConstraints" />
+
     <EditText
         android:id="@+id/ETOwnerNSearchPet"
         android:layout_width="290dp"
         android:layout_height="62dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="12dp"
         android:background="@drawable/input_bg"
         android:drawablePadding="10dp"
         android:ems="10"
@@ -114,21 +133,6 @@
         app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ETPetNameSearch"
-        tools:ignore="MissingConstraints" />
-
-    <Spinner
-        android:id="@+id/spinnerTypePet"
-        android:layout_width="290dp"
-        android:layout_height="62dp"
-        android:layout_marginTop="30dp"
-        android:layout_marginBottom="100dp"
-        android:background="@drawable/input_bg"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ETOwnerNSearchPet"
-        app:layout_constraintVertical_bias="0.222"
         tools:ignore="MissingConstraints" />
 
     <EditText

@@ -22,8 +22,7 @@ import java.sql.Statement;
 
 public class PetSearchActivity extends AppCompatActivity {
 
-    EditText ETIDPet, ETAnimalSearch, ETBreedSearch, ETPetNameSearch, ETOwnerNSearchPet, ETSearchPet;
-    Spinner spinnerTypePet;
+    EditText ETIDPet, ETAnimalSearch, ETBreedSearch, ETPetNameSearch, ETOwnerNSearchPet, ETSearchPet, ETChooseVet;
     Button btnDeletePet, btnEditPet, btnBackSearchPet, btnSearchPet;
     Connection con;
     Statement st;
@@ -40,8 +39,8 @@ public class PetSearchActivity extends AppCompatActivity {
         ETBreedSearch = findViewById(R.id.ETBreedSearch);
         ETPetNameSearch = findViewById(R.id.ETPetNameSearch);
         ETOwnerNSearchPet = findViewById(R.id.ETOwnerNSearchPet);
+        ETChooseVet = findViewById(R.id.ETChooseVet);
         ETSearchPet = findViewById(R.id.ETSearchPet);
-        spinnerTypePet = findViewById(R.id.spinnerTypePet);
         btnDeletePet = findViewById(R.id.btnDeletePet);
         btnEditPet = findViewById(R.id.btnEditPet);
         btnBackSearchPet = findViewById(R.id.btnBackSearchPet);
@@ -70,7 +69,7 @@ public class PetSearchActivity extends AppCompatActivity {
                         ETBreedSearch.setText(rs.getString(3));
                         ETPetNameSearch.setText(rs.getString(4));
                         ETOwnerNSearchPet.setText(rs.getString(5));
-                        //spinnerTypePatient.setSelection(rs.findColumn("speciality")); ????
+                        ETChooseVet.setText(rs.getString(6));
                     }
                     rs.close();
                     con.close();
@@ -156,7 +155,8 @@ public class PetSearchActivity extends AppCompatActivity {
             ETBreedSearch.setText("");
             ETPetNameSearch.setText("");
             ETOwnerNSearchPet.setText("");
-            //spinnerTypePatient.setSelection(0);
+            ETChooseVet.setText("");
+
     }
         @SuppressLint("NewApi")
         public Connection connectionClass (String user, String password, String database, String

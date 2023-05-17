@@ -30,18 +30,15 @@ public class DoctorViewActivity extends AppCompatActivity {
     private ListView doctorListView;
     private ArrayList<String> doctorList = new ArrayList<>();
 
-   //private int selectedPosition = -1;
-
     private ArrayAdapter<String> arrayAdapter;
     Connection con;
-    private ArrayList<String> data;
+
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_doctor_view);
-        data = new ArrayList<>();
         doctorListView = findViewById(R.id.doctor_list_view);
         arrayAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, doctorList);
         doctorListView.setAdapter(arrayAdapter);

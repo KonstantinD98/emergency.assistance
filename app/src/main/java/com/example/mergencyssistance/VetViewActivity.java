@@ -6,14 +6,17 @@ import java.sql.DriverManager;
 
 import android.annotation.SuppressLint;
 
+import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.StrictMode;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -28,6 +31,8 @@ public class VetViewActivity extends AppCompatActivity {
     private ArrayList<String> vetList = new ArrayList<>();
     private ArrayAdapter<String> arrayAdapter;
     Connection con;
+
+    private AlertDialog alertDialog;
 
 
 
@@ -48,8 +53,38 @@ public class VetViewActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 String selectedItem = (String) parent.getItemAtPosition(position);
-                Toast.makeText(VetViewActivity.this, "You clicked: " + selectedItem, Toast.LENGTH_SHORT).show();
 
+                Toast.makeText(VetViewActivity.this, "You clicked: " + selectedItem, Toast.LENGTH_SHORT).show();
+                AlertDialog.Builder builder = new AlertDialog.Builder(VetViewActivity.this);
+
+// Inflate the dialog_vet.xml layout
+                LayoutInflater inflater = getLayoutInflater();
+                View dialogView = inflater.inflate(R.layout.dialog_vet, null);
+
+// Find the EditText and Button views in the layout
+                Button button = dialogView.findViewById(R.id.save);
+
+// Set the OnClickListener for the button
+                button.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        // Get the text from the EditText
+
+
+                        // Do something with the text, e.g. show a Toast
+
+
+                        // Dismiss the dialog
+                        alertDialog.dismiss();
+                    }
+                });
+
+// Set the view of the AlertDialog to the inflated layout
+                builder.setView(dialogView);
+
+// Create the AlertDialog and show it
+                final AlertDialog alertDialog = builder.create();
+                alertDialog.show();
             }
         });
 

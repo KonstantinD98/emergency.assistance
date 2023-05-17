@@ -36,9 +36,6 @@
             android:name=".PatientVIewActivity"
             android:exported="false" />
         <activity
-            android:name=".patientview"
-            android:exported="false" />
-        <activity
             android:name=".DoctorViewActivity"
             android:exported="false" />
         <activity

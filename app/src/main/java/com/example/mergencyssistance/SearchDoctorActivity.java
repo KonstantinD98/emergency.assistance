@@ -69,7 +69,7 @@ public class SearchDoctorActivity extends AppCompatActivity {
                      ETLNameSearchDoc.setText(rs.getString(3));
                      ETEmailSearchDoc.setText(rs.getString(4));
                      ETTelephoneSearchDoc.setText(rs.getString(5));
-                     //spinnerTypeDoc.setSelection(rs.findColumn("speciality")); ????
+                     spinnerTypeDoc.setSelection(rs.findColumn("speciality")); 
                  }
                  rs.close();
                  con.close();
@@ -93,11 +93,12 @@ public class SearchDoctorActivity extends AppCompatActivity {
              DocEmail = ETEmailSearchDoc.getText().toString();
              DocPhone = ETTelephoneSearchDoc.getText().toString();
 
+
              try {
                  con = connectionClass(ConnectionClass.un.toString(), ConnectionClass.pass.toString(), ConnectionClass.db.toString(),
                          ConnectionClass.ip.toString());
                  if (con != null) {
-                     q = "update DoctorTable set firstName='" + f_DocName + "', lastName ='" + l_DocName + "', email='" + DocEmail + "', phone =" + DocPhone+" where doctorID=" +doc_id;
+                     q = "update DoctorTable set firstName='" + f_DocName + "', lastName ='" + l_DocName + "', email='" + DocEmail + "', phone ='" + DocPhone+"' where doctorID=" +doc_id;
                      st = con.createStatement();
                      result = st.executeUpdate(q);
                      if (result == 1) {
