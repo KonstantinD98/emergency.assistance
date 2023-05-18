@@ -23,6 +23,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class PetActivity extends AppCompatActivity {
 
@@ -103,6 +104,8 @@ public class PetActivity extends AppCompatActivity {
 
         @Override
         protected String doInBackground(String... strings) {
+            String selectedVetName = spinnerVet.getSelectedItem().toString();
+            int vetID = vetMap.get(selectedVetName);
             try {
                 con = connectionClass(ConnectionClass.un.toString(),ConnectionClass.pass.toString(),ConnectionClass.db.toString(),
                         ConnectionClass.ip.toString());
@@ -111,7 +114,7 @@ public class PetActivity extends AppCompatActivity {
                 }
                 else{
                     String sql = "INSERT INTO PetTable (animal,breed, name, ownerName, vetID) VALUES ('"+animal.getText()+"','"+breed.getText()
-                            +"','"+petName.getText()+"','"+ownerName.getText()+"','"+spinnerVet.getAdapter().getItemId(1)+"')";
+                            +"','"+petName.getText()+"','"+ownerName.getText()+"','"+vetID+"')";
                     stmt = con.createStatement();
                     stmt.executeUpdate(sql);
                 }
@@ -127,7 +130,8 @@ public class PetActivity extends AppCompatActivity {
         }
 
     }
-    public void fillSpinner() {
+    private HashMap<String, Integer> vetMap;
+    private void fillSpinner() {
         try {
             con = connectionClass(ConnectionClass.un.toString(),ConnectionClass.pass.toString(),ConnectionClass.db.toString(),
                     ConnectionClass.ip.toString());
@@ -135,19 +139,24 @@ public class PetActivity extends AppCompatActivity {
             PreparedStatement stmt = con.prepareStatement(query);
             ResultSet rs = stmt.executeQuery();
 
-            ArrayList<String> data = new ArrayList<String>();
+            ArrayList<String> vetNames = new ArrayList<String>();
+            vetMap = new HashMap<>();
             while(rs.next()){
+                int vetID = rs.getInt("vetID");
                 String name = rs.getString("firstName");
-                data.add(name);
+                vetNames.add(name);
+                vetMap.put(name,vetID);
             }
-            ArrayAdapter array = new ArrayAdapter(this, android.R.layout.simple_list_item_1,data);
+            ArrayAdapter array = new ArrayAdapter(this, android.R.layout.simple_list_item_1,vetNames);
             spinnerVet.setAdapter(array);
+
+
         } catch (Exception ex) {
             ex.printStackTrace();
 
         }
-
     }
+
 
     @SuppressLint("NewApi")
     public Connection connectionClass(String user, String password, String database, String server) {

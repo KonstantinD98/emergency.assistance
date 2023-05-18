@@ -23,6 +23,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class PatientActivity extends AppCompatActivity {
 
@@ -32,6 +33,7 @@ public class PatientActivity extends AppCompatActivity {
     TextView statuspatient;
     Connection con;
     Statement stmt;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -99,6 +101,8 @@ public class PatientActivity extends AppCompatActivity {
 
         @Override
         protected String doInBackground(String... strings) {
+            String selectedDoctorName = spinnerTypeP.getSelectedItem().toString();
+            int doctorID = doctorMap.get(selectedDoctorName);
             try {
                 con = connectionClass(ConnectionClass.un.toString(),ConnectionClass.pass.toString(),ConnectionClass.db.toString(),
                         ConnectionClass.ip.toString());
@@ -107,7 +111,7 @@ public class PatientActivity extends AppCompatActivity {
                 }
                 else{
                     String sql = "INSERT INTO PatientTable (firstName,lastName, phone, email, doctorID) VALUES ('"+ETFNameP.getText()+"','"+ETLNameP.getText()
-                            +"','"+ETTelephoneP.getText()+"','"+ETEmailP.getText()+"','"+spinnerTypeP.getAdapter().getItemId(1)+"')";
+                            +"','"+ETTelephoneP.getText()+"','"+ETEmailP.getText()+"','"+doctorID+"')";
                     stmt = con.createStatement();
                     stmt.executeUpdate(sql);
                 }
@@ -123,7 +127,8 @@ public class PatientActivity extends AppCompatActivity {
         }
 
     }
-    public void fillSpinner() {
+    private HashMap<String, Integer> doctorMap;
+    private void fillSpinner() {
         try {
             con = connectionClass(ConnectionClass.un.toString(),ConnectionClass.pass.toString(),ConnectionClass.db.toString(),
                     ConnectionClass.ip.toString());
@@ -131,18 +136,22 @@ public class PatientActivity extends AppCompatActivity {
             PreparedStatement stmt = con.prepareStatement(query);
             ResultSet rs = stmt.executeQuery();
 
-            ArrayList<String> data = new ArrayList<String>();
+            ArrayList<String> doctorNames = new ArrayList<String>();
+            doctorMap = new HashMap<>();
             while(rs.next()){
+                int doctorID = rs.getInt("doctorID");
                 String name = rs.getString("firstName");
-                data.add(name);
+                doctorNames.add(name);
+                doctorMap.put(name,doctorID);
             }
-            ArrayAdapter array = new ArrayAdapter(this, android.R.layout.simple_list_item_1,data);
+            ArrayAdapter array = new ArrayAdapter(this, android.R.layout.simple_list_item_1,doctorNames);
             spinnerTypeP.setAdapter(array);
+
+
         } catch (Exception ex) {
             ex.printStackTrace();
 
         }
-
     }
 
     @SuppressLint("NewApi")
