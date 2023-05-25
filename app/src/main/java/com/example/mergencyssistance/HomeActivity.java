@@ -11,6 +11,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.example.mergencyssistance.EmergencyWeather.EmergencyWeather;
 import com.example.mergencyssistance.R;
 
 public class HomeActivity extends AppCompatActivity {
@@ -31,6 +32,13 @@ public class HomeActivity extends AppCompatActivity {
                 editor.clear();
                 editor.apply();
                 startActivity(new Intent(HomeActivity.this,LoginActivity.class));
+            }
+        });
+        Button btnWeather= findViewById(R.id.btnWeather);
+        btnWeather.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(HomeActivity.this, EmergencyWeather.class));
             }
         });
         CardView doctor = findViewById(R.id.doctors);
